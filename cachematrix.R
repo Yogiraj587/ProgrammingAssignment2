@@ -32,3 +32,11 @@ cacheSolve <- function(x, ...) {
   x$SETINVERSE(Inverse)
   Inverse
 }
+
+### Testing the code
+## m<-matrix(rnorm(1:25),5,5)
+## n<-makeCacheMatrix(m)
+## cacheSolve(n)
+
+## This will return the inverse from the cache
+

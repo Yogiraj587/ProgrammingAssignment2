@@ -1,31 +1,26 @@
 ## This is assignment done by Yogiraj Bhagavatula for Assignment submission.
-##
-## I simply set the input x as a matrix
-## and then set the solved value "s" as a null
-## then I changed every reference to "mean" to "solve"
-makeCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)) {
+
+makeCacheMatrix <- function(x = matrix(sample(1:50,9),3,3)) {
   s <- NULL
   set <- function(y) {
     x <<- y
     s <<- NULL
   }
   get <- function() x
-  setsolve <- function(solve) s <<- solve
   getsolve <- function() s
   list(set = set, get = get,
-       setsolve = setsolve,
-       getsolve = getsolve)
+       SETsolve = SETsolve,
+       GETsolve = GETsolve)
 }
-##
-## Same here, changed "mean" to "solve" and "m" to "s"
+
 cacheSolve <- function(x, ...) {
-  s <- x$getsolve()
+  s <- x$GETsolve()
   if(!is.null(s)) {
-    message("getting inversed matrix")
+    message("Inverse of the matrix")
     return(s)
   }
   data <- x$get()
   s <- solve(data, ...)
-  x$setsolve(s)
+  x$SETsolve(s)
   s
 }
